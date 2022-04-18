@@ -8,7 +8,6 @@ import static valdes.com.company.BubbleSort.*;
 public class Main {
 
     public static void main(String[] args) {
-
         BubbleSort<String> bubbleSort = new BubbleSort<>();
         System.out.println("Введите длину массива --->>> ");
         int length = readNumber();
@@ -24,7 +23,6 @@ public class Main {
 
         System.out.println(Arrays.toString(data));
         System.out.println(Arrays.toString(orderValues));
-
     }
 
 
