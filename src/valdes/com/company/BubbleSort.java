@@ -37,7 +37,7 @@ public class BubbleSort<T> {
         return arr;
     }
 
-    public T fillArrayItems(T[] arr) {
+    public T[] fillArrayItems(T[] arr) {
         Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < arr.length; i++) {
@@ -48,11 +48,10 @@ public class BubbleSort<T> {
                 System.err.println("Error. Incorrect data entered. You entered string or not correct symbols");
             }
         }
-        return (T) arr;
+        return arr;
     }
 
-
-    public void sort(T[] data, int[] orderValues) {
+    public static <T> void sort(T[] data, int[] orderValues) {
         int size = orderValues.length;
         for (int i = 1; i < size - 1; i++) {
             for (int j = size - 1; j >= i; j--) {
@@ -63,7 +62,7 @@ public class BubbleSort<T> {
                     orderValues[j - 1] = orderValues[j];
                     orderValues[j] = temp;
 
-                    //сортировка generic
+                    //сортировка T элементов
 
                     T tmp = data[j - 1];
                     data[j - 1] = data[j];

@@ -1,9 +1,7 @@
 package valdes.com.company;
 
 import java.util.Arrays;
-
 import static valdes.com.company.BubbleSort.*;
-
 
 public class Main {
 
@@ -19,7 +17,7 @@ public class Main {
 
         System.out.println("Введите порядок массива --->>> ");
         bubbleSort.fillArray(orderValues);
-        bubbleSort.sort(data, orderValues);
+        sort(data, orderValues);
 
         System.out.println(Arrays.toString(data));
         System.out.println(Arrays.toString(orderValues));
