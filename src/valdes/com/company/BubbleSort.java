@@ -1,44 +1,75 @@
 package valdes.com.company;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class BubbleSort<T> {
+    public BubbleSort() {
+    }
 
+    public static int readNumber() {
+        Scanner scanner = new Scanner(System.in);
+        int length = 0;
 
-    public  int[] sort(int[] data) {
-        int size = data.length;
-        for (int i = 1; i < size - 1; i++) {
-            for (int j = size - 1; j >= i; j--) {
-                if (data[j - 1] > data[j]) {
-                    int temp = data[j - 1];
-                    data[j - 1] = data[j];
-                    data[j] = temp;
-                }
+        try {
+            length = scanner.nextInt();
+            if (length < 1) {
+                System.err.print("Error. Length of array can't be greater than 1...");
+            }
+            return length;
+        } catch (InputMismatchException e) {
+            System.err.println("Error. Incorrect data entered. You entered string or not correct symbols");
+            return 0;
+        }
+    }
+
+    public int[] fillArray(int[] arr) {
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < arr.length; i++) {
+            try {
+                System.out.printf("Введите %d элемент массива: ", i + 1);
+                arr[i] = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.err.println("Error. Incorrect data entered. You entered string or not correct symbols");
             }
         }
-        return data;
+        return arr;
+    }
+
+    public T fillArrayItems(T[] arr) {
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < arr.length; i++) {
+            try {
+                System.out.printf("Введите %d элемент массива: ", i + 1);
+                arr[i] = (T) scanner.nextLine();
+            } catch (InputMismatchException e) {
+                System.err.println("Error. Incorrect data entered. You entered string or not correct symbols");
+            }
+        }
+        return (T) arr;
     }
 
 
-    public static <T> void sorting(String[] data, int[] orderValues){
-        int tempNum;
-        String tempName;
+    public void sort(T[] data, int[] orderValues) {
+        int size = orderValues.length;
+        for (int i = 1; i < size - 1; i++) {
+            for (int j = size - 1; j >= i; j--) {
+                if (orderValues[j - 1] > orderValues[j]) {
+                    //сортировка интовых значений
 
-        for (int i = 0; i < orderValues.length; i++)
-        {
-            for (int j = i + 1; j < orderValues.length; j++)
-            {
-                if (orderValues[i] > orderValues[j])
-                {
-                    tempNum = orderValues[i];
-                    tempName=data[i];
+                    int temp = orderValues[j - 1];
+                    orderValues[j - 1] = orderValues[j];
+                    orderValues[j] = temp;
 
-                    orderValues[i] = orderValues[j];
-                    data[i] = data[j];
+                    //сортировка generic
 
-                    orderValues[j] = tempNum;
-                    data[j] = tempName;
+                    T tmp = data[j - 1];
+                    data[j - 1] = data[j];
+                    data[j] = tmp;
                 }
             }
-            System.out.println(data[i]);
         }
     }
 }
