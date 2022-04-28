@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static valdes.com.company.BubbleSort.sort;
 
-class BubbleSortTest<T> {
+class BubbleSortTest {
     TestCase testCase = new TestCase();
     TestResult testResult = new TestResult();
     int[] actualOrderResult;
